@@ -263,9 +263,12 @@ function compat(p){
   const model=state.model==='Other'?($('storeCustomModel').value.trim()||''):state.model;
   if(!make||!model||model==='Other')return 'unknown';
   const mk=make.toLowerCase();
-  const isJT=/\b(gladiator|jeep jt|jt gladiator)\b/.test(n);
-  const isJL=/\b(wrangler jl|wrangler jlu|jeep jl|jl wrangler)\b/.test(n);
-  const isJK=/\b(wrangler jk|jeep jk|jk wrangler)\b/.test(n);
+  // Cross-platform titles can specify Wrangler JL and Gladiator JT in one product.
+  const sharedJTJL=/\b(?:wrangler\s*\/\s*gladiator\s+jl\s*\/\s*jt|jeep\s+(?:jk\s*\/\s*)?jl\s*\/\s*jt|wrangler\s+jl\s*\/\s*jt)\b/.test(n);
+  const sharedAllJeep=/\bjeep\s+jk\s*\/\s*jl\s*\/\s*jt\b/.test(n);
+  const isJT=/\b(gladiator|jeep jt|jt gladiator)\b/.test(n)||sharedJTJL||sharedAllJeep;
+  const isJL=/\b(wrangler jl|wrangler jlu|jeep jl|jl wrangler)\b/.test(n)||sharedJTJL||sharedAllJeep;
+  const isJK=/\b(wrangler jk|jeep jk|jk wrangler)\b/.test(n)||sharedAllJeep;
   if(mk==='jeep'){
     if(/gladiator/.test(model.toLowerCase())){
       if(isJT)return 'yes';

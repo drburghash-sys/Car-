@@ -83,7 +83,8 @@ def main():
     page.wait_for_timeout(7000 if number==1 else 900)
     if number==1:
      print("DEBUG page title:",page.title(),flush=True)
-     print("DEBUG body:",page.locator("body").inner_text(timeout=3000)[:1400],flush=True)\n     print("DEBUG HTML:",page.content()[:1800],flush=True)
+     print("DEBUG body:",page.locator("body").inner_text(timeout=3000)[:1400],flush=True)
+     print("DEBUG HTML:",page.content()[:1800],flush=True)
      print("DEBUG links:",page.evaluate('''() => [...document.querySelectorAll("a[href]")].map(x=>x.href).slice(0,35)'''),flush=True)
      print("DEBUG network urls:",[x.url for x in page.context.pages][:3],flush=True)
     candidates=page.evaluate("""() => Array.from(document.querySelectorAll('a[href*="/products/"]')).map(a => {

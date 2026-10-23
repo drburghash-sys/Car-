@@ -68,13 +68,22 @@ def main():
    except Exception:pass
   page.on("response",collect)
   missed=0
+  import requests
+  for diagurl in [HOST+"/products?page=1&page_size=24&sort=newest&with_facets=1", HOST+"/",HOST+"/robots.txt"]:
+   try:
+    rr=requests.get(diagurl,timeout=12,headers={"User-Agent":"Mozilla/5.0 (compatible; ProductCatalogBot/1.0)"})
+    print("RAW REQUEST",diagurl,rr.status_code,len(rr.content),"end",rr.url,"text",rr.text[:900],"scripts",re.findall(r'<script[^>]+src="([^"]+)"',rr.text)[:6],flush=True)
+   except Exception as ex:print("REQUEST ERROR",str(ex)[:160],flush=True)
+  page.on("pageerror",lambda ex:print("PAGE ERR",str(ex)[:280],flush=True))
+  page.on("console",lambda m:print("CONSOLE",m.type,m.text[:240],flush=True) if m.type=="error" else None)
+  page.on("requestfailed",lambda rq:print("REQ FAILED",rq.url[:180],rq.failure,flush=True))
   for number in range(1,83):
    try:
     page.goto(f"{HOST}/products?page={number}&page_size=24&sort=newest&with_facets=1",wait_until="domcontentloaded",timeout=35000)
-    page.wait_for_timeout(900)
+    page.wait_for_timeout(7000 if number==1 else 900)
     if number==1:
      print("DEBUG page title:",page.title(),flush=True)
-     print("DEBUG body:",page.locator("body").inner_text(timeout=3000)[:1400],flush=True)
+     print("DEBUG body:",page.locator("body").inner_text(timeout=3000)[:1400],flush=True)\n     print("DEBUG HTML:",page.content()[:1800],flush=True)
      print("DEBUG links:",page.evaluate('''() => [...document.querySelectorAll("a[href]")].map(x=>x.href).slice(0,35)'''),flush=True)
      print("DEBUG network urls:",[x.url for x in page.context.pages][:3],flush=True)
     candidates=page.evaluate("""() => Array.from(document.querySelectorAll('a[href*="/products/"]')).map(a => {

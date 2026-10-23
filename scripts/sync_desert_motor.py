@@ -57,7 +57,7 @@ def scan(x,products,depth=0):
 def main():
  products={}
  with sync_playwright() as p:
-  browser=p.chromium.launch(headless=True,args=["--no-sandbox"])
+  browser=p.chromium.launch(headless=True,channel="chrome",args=["--no-sandbox"])
   ctx=browser.new_context(locale="en-US")
   ctx.route("**/*",lambda route: route.abort() if route.request.resource_type in ("image","media","font") else route.continue_())
   page=ctx.new_page()

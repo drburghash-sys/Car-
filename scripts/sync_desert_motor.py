@@ -72,6 +72,11 @@ def main():
    try:
     page.goto(f"{HOST}/products?page={number}&page_size=24&sort=newest&with_facets=1",wait_until="domcontentloaded",timeout=35000)
     page.wait_for_timeout(900)
+    if number==1:
+     print("DEBUG page title:",page.title(),flush=True)
+     print("DEBUG body:",page.locator("body").inner_text(timeout=3000)[:1400],flush=True)
+     print("DEBUG links:",page.evaluate('''() => [...document.querySelectorAll("a[href]")].map(x=>x.href).slice(0,35)'''),flush=True)
+     print("DEBUG network urls:",[x.url for x in page.context.pages][:3],flush=True)
     candidates=page.evaluate("""() => Array.from(document.querySelectorAll('a[href*="/products/"]')).map(a => {
        const e=a.closest("article,li,[data-product-id]")||a.parentElement?.parentElement;
        return {url:a.href,name:(a.innerText||e?.querySelector("h2,h3,h4")?.innerText||"").trim(),description:(e?.innerText||"").slice(0,800)};

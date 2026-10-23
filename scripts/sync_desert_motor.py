@@ -79,7 +79,7 @@ def main():
     added=0
     for item in candidates:
      if not item["name"]:continue
-     m=re.search(r"(?:QAR|QR)\\s*([\\d,.]+)",item["description"],re.I)
+     m=re.search(r"(?:QAR|QR)\s*([\d,.]+)",item["description"],re.I)
      before=len(products)
      add(dict(name=item["name"],category=item["description"],price=m.group(1) if m else 0,url=item["url"]),products)
      added+=len(products)-before

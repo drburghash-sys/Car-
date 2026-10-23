@@ -1,0 +1,37 @@
+name: Refresh Desert Motor catalog
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '13 3 * * *'
+  push:
+    paths:
+      - '.github/workflows/desert-motor-catalog.yml'
+      - 'scripts/sync_desert_motor.py'
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install storefront reader
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Collect public catalog
+        run: python scripts/sync_desert_motor.py
+      - name: Commit catalog snapshot if changed
+        run: |
+          if git diff --quiet -- desert-motor-catalog.json; then
+            echo "Catalog not changed"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add desert-motor-catalog.json
+            git commit -m "Refresh Desert Motor catalog"
+            git push
+          fi

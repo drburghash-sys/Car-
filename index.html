@@ -54,7 +54,7 @@
 .store-market-form{display:grid;grid-template-columns:1fr 1fr;gap:9px}.store-market-form label{display:block;color:#bcd7da;font-size:12px}.store-market-form label:first-child{grid-column:1/-1}.store-market-form input{margin-top:5px}
 .store-product-bar .store-live-label{color:#92eacb}
 @media(max-width:590px){.store-market-form{grid-template-columns:1fr}.store-market-form label{grid-column:1/-1}}
-</style></head><body><main id="carModFixed"><div class="header"><div class="pill">CAR MOD AI · استوديو التعديل البصري</div><h1>عدّل شكل سيارتك قبل ما تشتري</h1><div class="small">اختيار السيارة واللون · تصفح قطع المحرك الصحراوي · معاينة وفحص توافق مبدئي</div></div><div class="tabs"><button class="tab on" data-page="builder">🚙 صمّم سيارتك</button><button class="tab" data-page="instant">⚡ نموذج المقطع</button><button class="tab" data-page="photo">📷 صورتي</button><button class="tab" data-page="car">🚘 السيارة</button><button class="tab" data-page="mechanic">🔧 الميكانيكي</button></div>
+.store-auto-label{background:#0b3140;border:1px solid #21788b;border-radius:10px;padding:11px 14px;margin:12px 0;color:#d3f4fa;font-size:13px;font-weight:650;line-height:1.75} .store-auto-label small{display:block;color:#a8c6ce;font-weight:450} </style></head><body><main id="carModFixed"><div class="header"><div class="pill">CAR MOD AI · استوديو التعديل البصري</div><h1>عدّل شكل سيارتك قبل ما تشتري</h1><div class="small">اختيار السيارة واللون · تصفح قطع المحرك الصحراوي · معاينة وفحص توافق مبدئي</div></div><div class="tabs"><button class="tab on" data-page="builder">🚙 صمّم سيارتك</button><button class="tab" data-page="instant">⚡ نموذج المقطع</button><button class="tab" data-page="photo">📷 صورتي</button><button class="tab" data-page="car">🚘 السيارة</button><button class="tab" data-page="mechanic">🔧 الميكانيكي</button></div>
 
 
 <section id="builder" class="panel on" data-view="car" aria-label="اختيار السيارة ومنتجات المتجر">
@@ -71,9 +71,9 @@
  </div>
  <div class="store-panel" id="storeCatalogBlock"><div class="store-mini-header"><div><strong id="storeMiniHeading">سيارتك المختارة</strong><div class="store-muted">معاينة تقريبية للتعديلات</div></div><button id="storeEditCar" type="button">تغيير السيارة أو اللون</button></div><div class="store-mini-svg" id="storeMiniSvg"></div><h3>٣ · اختَر نوع قطع التعديل</h3><p>عند اختيار «أنظمة التعليق» ستظهر قطع هذا القسم من البيانات المسحوبة من موقع المحرك الصحراوي، مع تمييز ما يذكر سيارتك بالاسم وما يتطلب مراجعة التوافق.</p>
   <div class="store-category-grid" id="storeCategoryGrid"></div>
-  <div class="store-filter-row"><input class="store-search" id="storeProductSearch" aria-label="البحث في منتجات الفئة" placeholder="ابحث باسم القطعة أو الشركة أو المقاس…"><select id="storeFitFilter" aria-label="فلترة التوافق"><option value="possible" selected>قطع سيارتي والمحتمل توافقها</option><option value="explicit">اسم سيارتي مذكور بالقطعة</option><option value="all">كل منتجات القسم (حتى السيارات الأخرى)</option></select></div>
+  <div class="store-filter-row"><input class="store-search" id="storeProductSearch" aria-label="البحث في منتجات الفئة" placeholder="ابحث باسم القطعة أو الشركة أو المقاس…"><select id="storeFitFilter" aria-label="فلترة التوافق"><option value="explicit" selected>القطع المذكور فيها موديل سيارتي</option><option value="possible">قطع سيارتي والقطع العامة (تحتاج تحقق)</option><option value="all">كل منتجات القسم (حتى السيارات الأخرى)</option></select></div>
   <div class="store-market-search" aria-label="البحث في المحرك الصحراوي"><div class="store-market-heading"><strong>🔎 قطع المحرك الصحراوي لسيارتك</strong><span id="storeSyncStatus" role="status">جاري قراءة المنتجات المتاحة…</span></div><p id="storeMarketHint">حدد قسم التعديل، وستُعرض القطع التي تنطبق عليها كلمات موديل سيارتك، مع فصل التوافق غير المؤكد.</p><div class="store-market-actions"><button id="storeRefreshCatalog" type="button">↻ تحديث قائمة القطع</button><a id="storeSearchExternal" class="store-action-link" target="_blank" rel="noopener" href="https://desert-motor.com/products">ابحث في المتجر عن سيارتي ↗</a></div></div>
-<div class="store-meta"><strong class="store-compact" id="storeCurrentCategory">أنظمة التعليق والرفع</strong><span id="storeProductCount" class="store-count"></span></div>
+<div class="store-auto-label" id="storeAutoResultsLabel" role="status">البحث التلقائي حسب السيارة المختارة…</div><div class="store-meta"><strong class="store-compact" id="storeCurrentCategory">أنظمة التعليق والرفع</strong><span id="storeProductCount" class="store-count"></span></div>
   <div class="store-callout">قطع المتجر تُعرض من نسخة كتالوج تُحدَّث عند نجاح المزامنة، وليست اتصالاً لحظيًا بالمخزون أو الأسعار. لا تعتبر أي قطعة مناسبة ١٠٠٪ حتى يؤكد المتجر سنة الصنع والفئة ورقم القطعة. عند عدم العثور على القطعة استخدم البحث المباشر أو أضف رابطها.</div>
   <div class="store-products" id="storeProductGrid"></div>
   <div class="store-pick-from-web"><h3>اخترت قطعة في متجر المحرك الصحراوي؟</h3><p>إذا كانت القطعة غير موجودة في القائمة أعلاه، افتح المتجر وانسخ رابط المنتج هنا لحفظه ضمن تعديلات سيارتك. الاسم مطلوب والسعر اختياري.</p><div class="store-market-form"><label>رابط المنتج<input id="storeExternalUrl" type="url" inputmode="url" placeholder="https://desert-motor.com/products/..."></label><label>اسم القطعة<input id="storeExternalName" type="text" placeholder="مثال: مساعدات جيب جلاديتور ..."></label><label>السعر المعروض (QAR) — اختياري<input id="storeExternalPrice" type="number" min="0" step="0.01" placeholder="اختياري"></label></div><div class="store-market-actions"><button type="button" id="storeSaveExternal" class="good">+ اختر هذه القطعة</button><span id="storeExternalStatus" class="store-muted" role="status"></span></div></div>
@@ -208,7 +208,7 @@ const categories=[
 {id:'cool',name:'التبريد والمكيف',en:'Coolant system & Air condition',num:'٧٩',ico:'❄️'},
 {id:'oil',name:'الزيوت والفلاتر',en:'Grease, Oil & Oil Filters',num:'١٠٠',ico:'🧴'}
 ];
-const baseProducts=[{"id": "dm1", "name": "Exceed Sway Bar Links Rear Tank 300/500 (KIT)", "category": "susp", "price": 1000, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm2", "name": "Exceed Upper Control Arms Heimi Tank 500 (KIT)", "category": "susp", "price": 3200, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm3", "name": "Exceed Upper Control Arms Heimi Nissan Patrol Y63 (KIT)", "category": "susp", "price": 3200, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm4", "name": "King Shocks 2.5 Rear TANK 500 (Pair)", "category": "susp", "price": 0, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm5", "name": "King Shocks 2.5 Front Tank 500 (Pair)", "category": "susp", "price": 8700, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm6", "name": "Exceed Tie Rod Rear Heimi Nissan Y61 (Piece) (copy)", "category": "susp", "price": 1300, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm7", "name": "King Spring Blue Front 2 Inch Raised Comfort Toyota LC300 (Pair)", "category": "susp", "price": 800, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm8", "name": "King Spring Blue Rear Standard Hight Comfort Toyota LC300 (Pair)", "category": "susp", "price": 1000, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm9", "name": "King Spring Blue Rear 15mm Raised Comfort Toyota LC300 (Pair)", "category": "susp", "price": 1000, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm10", "name": "King Spring Blue Rear ? Raised Comfort Toyota LC300 (Pair)", "category": "susp", "price": 1000, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm11", "name": "King Spring Blue Front 2 Inch Raised Load 50-100 Kgs Nissan Patrol Y61/Y60 (Pair)", "category": "susp", "price": 800, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm12", "name": "King Spring Blue Rear 20mm Raised Comfort Toyota LC300 (Pair)", "category": "susp", "price": 1000, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm13", "name": "King Spring Blue Rear Standard Hight Load 300 Kgs Toyota LC200 (Pair)", "category": "susp", "price": 1000, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm14", "name": "King Spring Blue Front 1 Inch Raised Comfort Toyota FJ/Hilux (Pair)", "category": "susp", "price": 800, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm15", "name": "King Spring Blue Rear 1 Inch Raised Comfort Toyota FJ (Pair)", "category": "susp", "price": 1000, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm16", "name": "King Spring Blue Front Standard Hight Comfort Toyota LC79 (Pair)", "category": "susp", "price": 900, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm17", "name": "King Spring Blue Front 2 Inch Raised Comfort Toyota LC200 (Pair)", "category": "susp", "price": 800, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm18", "name": "King Spring Blue Rear 2 Inch Raised Load 100-250 Kgs Nissan Patrol Y61/Y60 4 Doors (Pair)", "category": "susp", "price": 800, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm19", "name": "King Spring Yellow Rear 2 Inch Raised Load 300-400 Kgs Nissan Patrol Y61/Y60 4 Doors (Pair)", "category": "susp", "price": 800, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm20", "name": "King Spring Blue Rear 1 Inch Raised Comfort Nissan Patrol Y62 (Pair)", "category": "susp", "price": 900, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm21", "name": "King Spring Blue Front 1 Inch Raised Comfort Nissan Patrol Y62 (Pair)", "category": "susp", "price": 900, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm22", "name": "OZ Racing Rally Legend 8X17 OZ Racing + Cover Cap Matt Bronze + Black Lettering (Piece)", "category": "wheels", "price": 2125, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm23", "name": "OZ Racing Rally Legend 8X17 OZ Racing Matt Bronze + Black L. (Piece)", "category": "wheels", "price": 2125, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm24", "name": "Exceed Wheels Atlas 16x7.5 6x139.7 ET10 CB110 Gloss Black (Piece)", "category": "wheels", "price": 1000, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm25", "name": "Exceed Wheels Atlas 17x8 6x139.7 ET10 CB101.1 Gloss Black (Piece)", "category": "wheels", "price": 1000, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm26", "name": "Exceed Wheels Atlas 17x8 6x139.7 ET10 CB101.1 Silver Machined (Piece)", "category": "wheels", "price": 1000, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm27", "name": "VENOM POWER Tires Trail Hunter ATS LT285/70R17 6PR 116/113Q (Piece)", "category": "wheels", "price": 600, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm28", "name": "Magnuson Charge Air Cooler Red Toyota LC300/ Tundra/ Sequoia 22+", "category": "cool", "price": 7200, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm29", "name": "k&N Replacement Cabin Air Filter Toyota Tacoma 2.7 08-23 (Piece)", "category": "cool", "price": 250, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm30", "name": "Exceed Thermostat Housing Toyota LC200 4.6L, 5.7L V8 (Piece)", "category": "cool", "price": 200, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm31", "name": "Exceed Power Steering Oil Cooler For Toyota LC100 {Kit}", "category": "cool", "price": 280, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}, {"id": "dm32", "name": "DWD2 Premium Automotive Citrus Air Freshener 1.5oz (Piece)", "category": "cool", "price": 30, "url": "https://desert-motor.com/products?page=1&page_size=24&sort=newest&with_facets=1", "source": "verified"}];
+const baseProducts=[]; // Only verified individual product links; no non-matching generic demo products.
 
 baseProducts.unshift({id:'jeep-jl-bushing-kit252k',name:'SuperPro Bushing Full Kit Jeep Wrangler JL 17+',category:'susp',price:2100,url:'https://desert-motor.com/products/34788',sku:'KIT252K',source:'verified',fitment:'Jeep Wrangler JL 2017+'});
 const key='car-mod-desert-catalog-v1';let syncedProducts=[];let syncedAt='';let state={make:'Jeep',model:'Gladiator JT',year:'',trim:'',color:'#f0f0ea',cat:'susp',chosen:[],visual:{lift:false,wheels:false,bumper:false,lights:false}};let imported=[];let allProducts=()=>{const seen=new Set();return [...syncedProducts,...baseProducts,...imported].filter(p=>{const k=(p.url||'')+'/ '+p.name.toLowerCase();if(seen.has(k))return false;seen.add(k);return true})};let activeAnchor='storeCarBlock';
@@ -229,41 +229,69 @@ const w=(x)=>`<g><circle cx="${x}" cy="256" r="${wheel+7}" fill="#16212a" stroke
 return `<svg role="img" aria-label="تصميم تقريبي لسيارة ${safe(state.make+' '+state.model)} بلون ${safe(colors.find(c=>c[1]===col)?.[0]||'اختياري')}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 367"><defs><linearGradient id="glass" x1="0" x2=".7" y1="0" y2="1"><stop stop-color="#76a9b6"/><stop offset="1" stop-color="#203e50"/></linearGradient></defs><path d="M55 325 H850" stroke="#466578" stroke-width="4"/><ellipse cx="449" cy="321" rx="365" ry="21" fill="#06131a" opacity=".6"/>${body}${state.visual.lift?`<g stroke="#d5aa56" stroke-width="4"><path d="M235 248 v37 m-12 -33 h24 m-24 10 h24 m-24 11 h24"/><path d="M650 248 v37 m-12 -33 h24 m-24 10 h24 m-24 11 h24"/></g>`:''}${w(243)}${w(652)}<text x="450" y="351" fill="#b6d3dc" text-anchor="middle" font-family="sans-serif" font-size="17">${safe(state.make)} · ${safe(state.model)} · ${safe(state.year||'اختر السنة')}</text></svg>`}
 function renderCar(){const svg=svgCar();$('storeCarSvg').innerHTML=svg;$('storeMiniSvg').innerHTML=svg;$('storeMiniHeading').textContent=state.make+' '+state.model+(state.year?' · '+state.year:' · السنة غير محددة');$('storePreviewHeading').textContent=state.make+' '+state.model+(state.year?' · '+state.year:' · السنة غير محددة');const badge=$('storeCarSummary');badge.replaceChildren();for(let txt of [state.make,state.model,state.year||'السنة غير محددة',colors.find(c=>c[1]===state.color)?.[0]||'اللون',state.trim||'الفئة غير محددة']){let s=document.createElement('span');s.textContent=txt;badge.append(s)};const el=$('storeCarBlock');if(el)el.dataset.make=state.make}
 function storeState(){state.make=$('storeMake').value;state.model=$('storeModel').value;state.year=$('storeYear').value;state.trim=$('storeTrim').value.trim();syncCustom();persist();renderCar();renderProducts()}
-$('storeMake').onchange=()=>{state.make=$('storeMake').value;populateModels();storeState()};for(let id of ['storeModel','storeYear'])$(id).onchange=storeState;$('storeTrim').oninput=storeState;for(let id of ['storeCustomMake','storeCustomModel'])$(id).oninput=()=>{const isOther=state.make==='Other',mOther=state.model==='Other';if(isOther)$('storePreviewHeading').textContent=($('storeCustomMake').value||'شركة أخرى')+' '+($('storeCustomModel').value||'موديل آخر')+' · '+state.year;else if(mOther)$('storePreviewHeading').textContent=state.make+' '+($('storeCustomModel').value||'موديل آخر')+' · '+state.year};
+$('storeMake').onchange=()=>{state.make=$('storeMake').value;populateModels();storeState()};for(let id of ['storeModel','storeYear'])$(id).onchange=storeState;$('storeTrim').oninput=storeState;for(let id of ['storeCustomMake','storeCustomModel'])$(id).oninput=()=>{const isOther=state.make==='Other',mOther=state.model==='Other';if(isOther)$('storePreviewHeading').textContent=($('storeCustomMake').value||'شركة أخرى')+' '+($('storeCustomModel').value||'موديل آخر')+' · '+state.year;else if(mOther)$('storePreviewHeading').textContent=state.make+' '+($('storeCustomModel').value||'موديل آخر')+' · '+state.year;renderProducts()};
 for(let [key,id] of [['lift','storeLift'],['wheels','storeWheels'],['bumper','storeBumper'],['lights','storeLights']]){$(id).checked=!!state.visual[key];$(id).onchange=e=>{state.visual[key]=e.target.checked;persist();renderCar()}}
 const cats=$('storeCategoryGrid');for(let c of categories){let b=document.createElement('button');b.type='button';b.className='store-category';b.dataset.cat=c.id;b.innerHTML=`<span class="symbol">${c.ico}</span><strong>${c.name}</strong><small>${c.num} منتجًا في المتجر*</small>`;b.onclick=()=>{state.cat=c.id;persist();$('storeProductSearch').value='';renderCategories();renderProducts();updateShopSearch()};cats.append(b)}
 function renderCategories(){[...cats.children].forEach(x=>{let on=x.dataset.cat===state.cat;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on))});$('storeCurrentCategory').textContent=categories.find(c=>c.id===state.cat)?.name||''}
+function modelAliases(){
+  const make=state.make==='Other'?($('storeCustomMake').value.trim()||''):state.make;
+  const model=state.model==='Other'?($('storeCustomModel').value.trim()||''):state.model;
+  const all=(make+' '+model).toLowerCase();
+  if(/gladiator/.test(all))return ['gladiator','jeep jt','jt gladiator'];
+  if(/wrangler jl/.test(all))return ['wrangler jl','jeep jl','jl wrangler','wrangler jlu','wrangler'];
+  if(/wrangler jk/.test(all))return ['wrangler jk','jeep jk','jk wrangler','wrangler'];
+  const extra={
+    'land cruiser 300':['lc300','lc 300','land cruiser 300'],
+    'land cruiser 200':['lc200','lc 200','land cruiser 200'],
+    'land cruiser 70':['lc70','lc 70','lc79','lc 79','land cruiser 70'],
+    'patrol y63':['patrol y63','nissan y63'],
+    'patrol y62':['patrol y62','nissan y62'],
+    'patrol y61':['patrol y61','nissan y61','patrol y60/y61'],
+    'tank 300':['tank 300','tank300'],
+    'tank 500':['tank 500','tank500'],
+    'f-150':['f-150','f150'],
+    'f-150 raptor':['f-150 raptor','f150 raptor'],
+    'jimny':['jimny'],
+    'fj cruiser':['fj cruiser','toyota fj'],
+    't2':['jetour t2']
+  };
+  return [...new Set([model.toLowerCase(),...(extra[model.toLowerCase()]||[])].filter(x=>x.length>=2))];
+}
 function compat(p){
-const n=(' '+p.name+' '+(p.fitment||'')+' ').toLowerCase(),m=state.model.toLowerCase(),mk=state.make.toLowerCase();
-const has=(re)=>re.test(n);
-const other=/(toyota|nissan|patrol|lc\d{2,3}|land cruiser|lexus|tacoma|tundra|hilux|ford|bronco|f-150|chevrolet|silverado|sierra|gmc|ram 1500|tank 300|tank 500|haval|jimny|suzuki|mitsubishi|pajero|isuzu)/i;
-if(mk==='jeep'){
-  if(other.test(n)&&!has(/jeep|gladiator|wrangler/i))return 'no';
-  const isJT=has(/\b(gladiator|jeep jt|jt gladiator)\b/i),isJL=has(/\b(wrangler|jeep jl|wrangler jl|jl wrangler)\b/i),isJK=has(/\b(wrangler jk|jeep jk|jk wrangler)\b/i);
-  if(m.includes('gladiator')){
-    if(isJT)return 'yes';
-    if(isJL||isJK)return 'no';
-  }else if(m.includes('wrangler jl')){
-    if(isJK)return 'no';
-    if(isJL)return 'yes';
-    if(isJT)return 'no';
-  }else if(m.includes('wrangler jk')){
-    if(isJL||isJT)return 'no';
-    if(isJK)return 'yes';
-    if(has(/\bwrangler\b/i))return 'unknown';
-  }else if(has(/\b(gladiator|wrangler)\b/i))return 'no';
+  const n=(' '+(p.name||'')+' '+(p.fitment||'')+' ').toLowerCase().replace(/[_-]/g,' ').replace(/\s+/g,' ');
+  const make=state.make==='Other'?($('storeCustomMake').value.trim()||''):state.make;
+  const model=state.model==='Other'?($('storeCustomModel').value.trim()||''):state.model;
+  if(!make||!model||model==='Other')return 'unknown';
+  const mk=make.toLowerCase();
+  const isJT=/\b(gladiator|jeep jt|jt gladiator)\b/.test(n);
+  const isJL=/\b(wrangler jl|wrangler jlu|jeep jl|jl wrangler)\b/.test(n);
+  const isJK=/\b(wrangler jk|jeep jk|jk wrangler)\b/.test(n);
+  if(mk==='jeep'){
+    if(/gladiator/.test(model.toLowerCase())){
+      if(isJT)return 'yes';
+      if(isJL||isJK||/\bwrangler\b/.test(n))return 'no';
+    }else if(/wrangler jl/.test(model.toLowerCase())){
+      if(isJL)return 'yes';
+      if(isJT||isJK)return 'no';
+      if(/\bwrangler\b/.test(n))return 'unknown';
+    }else if(/wrangler jk/.test(model.toLowerCase())){
+      if(isJK)return 'yes';
+      if(isJL||isJT)return 'no';
+      if(/\bwrangler\b/.test(n))return 'unknown';
+    }else if(isJT||isJL||isJK)return 'no';
+    if(/\b(toyota|nissan|patrol|lexus|ford|bronco|silverado|sierra|gmc|ram 1500|tank 300|tank 500|haval|jimny|suzuki|mitsubishi|isuzu)\b/.test(n)&&!/jeep|wrangler|gladiator/.test(n))return 'no';
+    return 'unknown';
+  }
+  if(isJT||isJL||isJK)return 'no';
+  const aliases=modelAliases().map(x=>x.replace(/[-]/g,' ').replace(/\s+/g,' ')).filter(x=>x.length>=2);
+  if(aliases.some(a=>n.includes(a)))return 'yes';
+  if((mk==='toyota'&&/nissan|ford|jeep|gmc|tank 500/.test(n))||(mk==='nissan'&&/toyota|ford|jeep|gmc|tank 500/.test(n)))return 'no';
+  if(n.includes(mk)&&!n.includes(model.toLowerCase()))return 'unknown';
   return 'unknown';
 }
-if(has(/\b(gladiator|wrangler|jeep jt|jeep jl|jeep jk)\b/i)&&mk!=='jeep')return 'no';
-if(mk==='toyota'&&has(/nissan|gmc|ford|jeep|suzuki|tank 500/i)&&!has(/toyota/i))return 'no';
-if(mk==='nissan'&&has(/toyota|gmc|ford|jeep|suzuki|tank 500/i)&&!has(/nissan/i))return 'no';
-const modelTokens=m.replace(/\b(jt|jl|jk|series)\b/g,'').trim();
-if(n.includes(modelTokens)&&modelTokens.length>3)return 'yes';
-if(n.includes(mk)&&mk.length>3)return 'unknown';
-return 'unknown';
-}
 function renderProducts(){updateShopSearch();let cat=state.cat,q=$('storeProductSearch').value.trim().toLowerCase(),f=$('storeFitFilter').value;let arr=allProducts().filter(p=>p.category===cat).filter(p=>!q||(p.name+' '+(p.sku||'')+' '+(p.fitment||'')).toLowerCase().includes(q)).filter(p=>f==='all'||(f==='explicit'?compat(p)==='yes':compat(p)!=='no')).sort((a,b)=>{const rank=p=>compat(p)==='yes'?0:compat(p)==='unknown'?1:2;return rank(a)-rank(b)});
-$('storeProductCount').textContent=arr.length+' قطعة في هذا القسم'+(syncedProducts.length?` · كتالوج المتجر المحفوظ: ${syncedProducts.length}`:' · بيانات محدودة (لم تكتمل المزامنة)');let grid=$('storeProductGrid');grid.replaceChildren();if(!arr.length){grid.innerHTML=`<div class="store-empty">لا توجد منتجات مُدرجة في هذا القسم${f!=='all'?' مع شرط التوافق المحدد':''}.<div class="store-muted">جرّب البحث في المتجر نفسه، أو افتح كل قطع القسم، أو أضف رابط القطعة التي وجدتها.</div></div>`;return}
+$('storeAutoResultsLabel').innerHTML='🚙 بحث تلقائي: <b dir="ltr">'+safe(storeVehicleKeyword())+'</b> → <b dir="ltr">'+safe(categories.find(c=>c.id===state.cat)?.en||'')+'</b><small>تظهر القطع المطابقة بالاسم من كتالوج المحرك الصحراوي المحفوظ. اختر «القطع العامة» لعرض القطع غير المؤكد توافقها. بعض أسماء السيارات والمقاسات تختلف بحسب الفئة والسنة.</small>';
+$('storeProductCount').textContent=arr.length+' قطعة في هذا القسم'+(syncedProducts.length?` · كتالوج المتجر المحفوظ: ${syncedProducts.length}`:' · بيانات محدودة (لم تكتمل المزامنة)');let grid=$('storeProductGrid');grid.replaceChildren();if(!arr.length){grid.innerHTML=`<div class="store-empty">لا توجد قطع باسم سيارتك في الكتالوج المتاح لهذا القسم${f!=='all'?' مع شرط التوافق المحدد':''}.<div class="store-muted">جرّب البحث في المتجر نفسه، أو افتح كل قطع القسم، أو أضف رابط القطعة التي وجدتها.</div></div>`;return}
 for(let p of arr.slice(0,250)){let st=compat(p);let holder=document.createElement('article');holder.className='store-product';let catName=categories.find(c=>c.id===p.category)?.name||p.category;let price=Number(p.price)>0?Number(p.price).toLocaleString('en-US')+' QAR':'اسأل المتجر عن السعر';let stateText=st==='yes'?'موديل سيارتك مذكور بالقطعة — تحقق من السنة والفئة ورقم القطعة':st==='no'?'مخصص غالبًا لسيارة أخرى — غير مناسب مبدئيًا':'التوافق غير مؤكد — افحص المواصفات ورقم القطعة';holder.innerHTML=`<div class="store-product-bar"><span>${safe(catName)}</span><span>${p.source==='synced'?'من كتالوج المحرك الصحراوي':p.source==='verified'?'موثّقة من المتجر':'أضفتها أنت'}</span></div><div class="store-product-body"><h4>${safe(p.name)}</h4><div class="store-price" dir="ltr">${safe(price)}</div><div class="store-compat ${st}">${safe(stateText)}</div>${p.sku?`<small class="store-help">SKU: ${safe(p.sku)}</small>`:''}<div class="store-product-foot"><button type="button" ${st==='no'?'disabled title="مخصص لسيارة أخرى"':''}>+ أضف لقائمتي</button><a href="${safe(/^https:\/\//i.test(p.url||'')?p.url:STORE_URL)}" target="_blank" rel="noopener">عرض المنتج ↗</a></div></div>`;
  holder.querySelector('button').onclick=()=>{if(state.chosen.some(x=>x.id===p.id)){showStoreMsg('القطعة موجودة بالفعل في قائمتك');return}state.chosen.push({...p,compatibility:st});persist();renderCart();showStoreMsg('أُضيفت إلى قائمة التعديلات — تحقق من التوافق قبل الشراء');if(p.category==='susp'){$('storeLift').checked=state.visual.lift=true}if(p.category==='wheels'){$('storeWheels').checked=state.visual.wheels=true}if(p.category==='armor'){$('storeBumper').checked=state.visual.bumper=true}if(p.category==='lighting'){$('storeLights').checked=state.visual.lights=true}renderCar()};grid.append(holder)}
 if(arr.length>250){let a=document.createElement('p');a.className='store-muted';a.textContent='عرض أول ٢٥٠ نتيجة. ضيّق البحث لعرض باقي المنتجات.';grid.append(a)}
@@ -286,8 +314,9 @@ if(imported.length)$('storeImportStatus').textContent=`توجد ${imported.lengt
 
 const searchLabels={susp:'Suspension',wheels:'Wheels',armor:'Bumper',lighting:'Lighting',engine:'Performance',recovery:'Recovery',cool:'Coolant',oil:'Oil'};
 function storeVehicleKeyword(){
- if(state.make.toLowerCase()==='jeep')return 'Jeep '+(state.model.startsWith('Gladiator')?'Gladiator':state.model.startsWith('Wrangler')?state.model:'Wrangler');
- return state.make+' '+state.model;
+ const make=state.make==='Other'?($('storeCustomMake').value.trim()||'Other'):state.make;
+ const model=state.model==='Other'?($('storeCustomModel').value.trim()||'Car'):state.model;
+ return make+' '+model;
 }
 function updateShopSearch(){
  const query=storeVehicleKeyword()+' '+(searchLabels[state.cat]||'parts');
